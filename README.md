@@ -1,6 +1,9 @@
 # Steps
 
 1 setting up tailwind
+2 Header
+3 Login form
+4 Sign up form
 
 # features
 
