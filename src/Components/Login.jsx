@@ -17,15 +17,21 @@ const Login = () => {
 
     <form className="absolute p-12  bg-black w-3/12 my-36 mx-auto right-0 left-0 text-white bg-opacity-80" >
       <h1 
-      className="text-white text-3xl py-4 font-bold">{SingIn ? "signin " : "signup"}</h1>
+      className="text-white text-3xl py-4 font-bold">{SingIn ? "Sign-in " : "Sign-up"}</h1>
       <input 
       className="p-4 my-4 w-full bg-gray-800 rounded-lg " type="email" placeholder="Email" />
+
+      
+{!SingIn &&( <input 
+      className="p-4 my-4 w-full bg-gray-800 rounded-lg " type="tet" placeholder="Fullname" />)}
+       
+       
       <input 
       className="p-4 my-4 w-full bg-gray-800 rounded-lg" type="password" placeholder="Password" />
       <button 
-      className="p-4 my-4 bg-red-700 w-full rounded-lg">Sign-IN</button>
+      className="p-4 my-4 bg-red-700 w-full rounded-lg">{SingIn ? "Sign-in " : "Sign-up"}</button>
       <p 
-      className="py-4 font-bold cursor-pointer " onClick={toogleSignin}>New to Netflix ? {SingIn ? "Sign-Up" :"sign-in"}  </p>
+      className="py-4 font-bold cursor-pointer " onClick={toogleSignin}> {SingIn ? " New to Netflix ?   Sign-Up" :" Alreadt a user sign-in"}  </p>
     </form>
   </>;
 };
