@@ -2,8 +2,14 @@
 
 1 setting up tailwind
 2 Header
-3 Login form
-4 Sign up form
+3 Routing
+4 Login form
+5 Sign up form
+6 Form valdation 
+7 useRef hook 
+8 firebase setup
+9 Deploying our app on production
+10 Create SIGNUP in firebase
 
 # features
 
