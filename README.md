@@ -24,6 +24,8 @@
 
 12 created User redux store with user slice
 
+13 Implemented Logout feature
+
 # features
 
 - Login/Signup
