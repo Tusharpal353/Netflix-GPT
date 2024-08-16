@@ -1,13 +1,18 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
 import { validate } from "../Utils/validate";
-import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "../Utils/firebase";
 import { useNavigate } from "react-router-dom";
+/* import {  updateProfile } from "firebase/auth"; */
 const Login = () => {
   const [SingIn, setSignin] = useState(true);
   const [errormsg, seterrormsg] = useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+/*   const name=useRef(null) */
   const email = useRef(null);
   const password = useRef(null);
 
@@ -15,15 +20,15 @@ const Login = () => {
     //validate the form data
     //checkVlidation(email,password)
 
-    console.log(email.current.value);
-    console.log(password.current.value);
+    //console.log(email.current.value);
+    //console.log(password.current.value);
 
     const message = validate(email.current.value, password.current.value);
     //console.log(message)
     seterrormsg(message);
 
     //checking is there is erro in the sign in
-    if (message) return; 
+    if (message) return;
 
     if (!SingIn) {
       //signup login
@@ -35,32 +40,51 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user)
-          navigate("/browse") //to navigate the user to after login
+          console.log(user);
+
+          //implementing to show user name
+          
+        /*   updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: "https://example.com/jane-q-user/profile.jpg",
+          })
+            .then(() => {
+              // Profile updated!
+              // ...
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+            }); */
+          navigate("/browse"); //to navigate the user to after login
           // ...
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          seterrormsg(errorCode+"-"+errorMessage)
+          seterrormsg(errorCode + "-" + errorMessage);
           // ..
         });
     } else {
       //sign in logic
-      signInWithEmailAndPassword(auth,email.current.value, password.current.value)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log(user)
-    navigate("/browse") //to navigate the user to after login
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    seterrormsg(errorCode+"-"+errorMessage)
-    //console.log(errorCode+"-"+errorMessage)
-  });
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          navigate("/browse"); //to navigate the user to after login
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          seterrormsg(errorCode + "-" + errorMessage);
+          //console.log(errorCode+"-"+errorMessage)
+        });
     }
   };
 

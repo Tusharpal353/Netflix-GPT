@@ -3,8 +3,13 @@ import usericon from "../Images/Header/ProfileIMG.png";
 import { auth } from "../Utils/firebase"
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
+import {  onAuthStateChanged } from "firebase/auth";
 
+import {addUser, removeUser} from "../Utils/userSlice"
+import { useDispatch } from "react-redux";
+import   { useEffect } from "react";
 const Header = () => {
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
   const handleSignOut = () => {
@@ -17,6 +22,28 @@ const Header = () => {
       // An error happened.
     });
   }
+
+  useEffect(()=>{
+  
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const {uid,email,displayName} = user;
+        dispatch(addUser({uid:uid, email:email, displayName:displayName}));
+        navigate("/browse")
+       
+  
+        // ...
+      } else {
+        dispatch(removeUser());
+        navigate("/")
+       
+        // User is signed out
+        // ...
+      }
+    });
+  },[])
 
 
   return (
