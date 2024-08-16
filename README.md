@@ -28,6 +28,12 @@
 
 13 Implemented Logout feature
 
+14 Bugfix: if the user is not logged in redirect /browse page to the login page and visevarse
+
+15 changed constant string value constant file 
+
+16 Api call for the moive is done
+
 # features
 
 - Login/Signup

@@ -6,25 +6,22 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
-import { useNavigate } from "react-router-dom";
+import { BANNER } from "../Utils/constants";
+
 /* import {  updateProfile } from "firebase/auth"; */
 const Login = () => {
   const [SingIn, setSignin] = useState(true);
   const [errormsg, seterrormsg] = useState(null);
-  const navigate = useNavigate();
+  
 /*   const name=useRef(null) */
   const email = useRef(null);
   const password = useRef(null);
 
   const handleButtonClick = () => {
-    //validate the form data
-    //checkVlidation(email,password)
-
-    //console.log(email.current.value);
-    //console.log(password.current.value);
+    
 
     const message = validate(email.current.value, password.current.value);
-    //console.log(message)
+   
     seterrormsg(message);
 
     //checking is there is erro in the sign in
@@ -40,24 +37,9 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
+          //console.log(user);
 
-          //implementing to show user name
           
-        /*   updateProfile(user, {
-            displayName: name.current.value,
-            photoURL: "https://example.com/jane-q-user/profile.jpg",
-          })
-            .then(() => {
-              // Profile updated!
-              // ...
-            })
-            .catch((error) => {
-              // An error occurred
-              // ...
-            }); */
-          navigate("/browse"); //to navigate the user to after login
-          // ...
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -75,8 +57,8 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse"); //to navigate the user to after login
+         // console.log(user);
+         
           // ...
         })
         .catch((error) => {
@@ -98,7 +80,7 @@ const Login = () => {
 
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/b2c3e95b-b7b5-4bb7-a883-f4bfc7472fb7/19fc1a4c-82db-4481-ad08-3a1dffbb8c39/IN-en-20240805-POP_SIGNUP_TWO_WEEKS-perspective_WEB_24a485f6-1820-42be-9b60-1b066f1eb869_large.jpg"
+          src={BANNER}
           alt="Banner"
         />
       </div>
