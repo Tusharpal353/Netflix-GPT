@@ -20,6 +20,8 @@
 
 10 Create SIGNUP in firebase
 
+  DAY2
+
 11 implemented  signin in user api
 
 12 created User redux store with user slice
