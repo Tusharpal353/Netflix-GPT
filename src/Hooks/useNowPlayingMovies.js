@@ -1,12 +1,15 @@
-import { useDispatch } from "react-redux";
+/* import { useDispatch } from "react-redux";
 import { addNowPlayingMovies } from "../Utils/moviesSlice";
 import { useEffect } from "react";
 
+//hook for getting moives
 
 const useNowPlayingMovies = () => {
   const dispatch = useDispatch();
-  const getNowPlayingMovies = async () => {
-    const url = "https://imdb-top-100-movies.p.rapidapi.com/";
+  const getNowPlayingMovies = async () => { */
+   /* 
+    Account - 1
+   const url = "https://imdb-top-100-movies.p.rapidapi.com/";
     const options = {
       method: "GET",
       headers: {
@@ -22,10 +25,42 @@ const useNowPlayingMovies = () => {
       dispatch(addNowPlayingMovies(result));
     } catch (error) {
       console.error(error);
-    }
+    } */
+     /*  const options = {
+        method: 'GET',
+        headers: {
+          'x-rapidapi-key': 'dc8e956a92msh4faf65bfceb32a7p16ba3djsn528e59c4d385',
+          'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
+        }
+      };
+      
+      try {
+        const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
+        const response = await fetch(url, options);
+        const result = await response.text();
+        console.log(result);
+      } catch (error) {
+        console.error(error);
+      }
   };
   useEffect(() => {
     getNowPlayingMovies();
   }, []);
 };
+export default useNowPlayingMovies; */
+
+import { useDispatch } from "react-redux";
+import { addNowPlayingMovies } from "../Utils/moviesSlice";
+import { useEffect } from "react";
+import localMovies from "../Utils/MovieData.json" // Import the local JSON data
+
+const useNowPlayingMovies = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Dispatch the local JSON data to the Redux store
+    dispatch(addNowPlayingMovies(localMovies));
+  }, [dispatch]);
+};
+
 export default useNowPlayingMovies;
