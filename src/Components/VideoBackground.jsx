@@ -46,53 +46,13 @@ export default VideoBackground;
 
  */
 
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
+import useMovieTrailer from "../Hooks/useMovieTrailer"; // Adjust the import path if needed
 
 const VideoBackground = () => {
   const imdbId = useSelector((store) => store.movies?.trailerVideo);
-  const [trailerUrl, setTrailerUrl] = useState('');
-  const [loading, setLoading] = useState(true);
-  
-  const fetchMovieDetails = async () => {
-    const omdbApiKey = 'fefeee46'; // Replace with your OMDb API key
-    const youtubeApiKey = 'AIzaSyBGSdUGrT8zzoj8vpCfwA-4dp418noAVCw'; // Replace with your YouTube API key
-
-    try {
-      // Fetch movie details from OMDb API
-      const omdbResponse = await fetch(`http://www.omdbapi.com/?i=${imdbId}&apikey=${omdbApiKey}`);
-      const movieData = await omdbResponse.json();
-
-      if (movieData.Title) {
-        // Search for the trailer on YouTube
-        const youtubeResponse = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(movieData.Title + ' trailer')}&type=video&key=${youtubeApiKey}`);
-        const youtubeData = await youtubeResponse.json();
-
-        if (youtubeData.items && youtubeData.items.length > 0) {
-          const trailerId = youtubeData.items[0].id.videoId;
-          setTrailerUrl(`https://www.youtube.com/embed/${trailerId}`);
-        } else {
-          console.log('Trailer not found');
-          setTrailerUrl(''); // No trailer found
-        }
-      } else {
-        console.log('Movie not found');
-        setTrailerUrl(''); // No movie data found
-      }
-    } catch (err) {
-      console.error('Error fetching data:', err);
-      setTrailerUrl(''); // Error occurred
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    if (imdbId) {
-      fetchMovieDetails();
-    }
-  }, [imdbId]);
+  const { trailerUrl, loading } = useMovieTrailer(imdbId);
 
   return (
     <div>
@@ -107,7 +67,7 @@ const VideoBackground = () => {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        ></iframe>
+        />
       ) : (
         <p>No trailer available</p>
       )}
