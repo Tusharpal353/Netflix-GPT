@@ -49,6 +49,16 @@ const useNowPlayingMovies = () => {
 };
 export default useNowPlayingMovies; */
 
+
+
+
+
+
+
+
+
+/* **************************************************************MOCKDATA*********************************************************** */
+
 import { useDispatch } from "react-redux";
 import { addNowPlayingMovies } from "../Utils/moviesSlice";
 import { useEffect } from "react";
@@ -64,3 +74,8 @@ const useNowPlayingMovies = () => {
 };
 
 export default useNowPlayingMovies;
+
+
+
+
+/****************************************************TRAILER API******************************************************* */ 
