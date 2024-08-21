@@ -54,7 +54,10 @@
 
 26 Made UI for the cards section 
 
-27
+
+***************************************************************GPT Search Feature************
+27 
+
 
 # features
 

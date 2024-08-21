@@ -9,11 +9,12 @@ import { addUser, removeUser } from "../Utils/userSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { LOGO } from "../Utils/constants";
+import { toogleGptSearchView } from "../Utils/gptSlice";
 const Header = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -47,12 +48,24 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  //for GPT
+  const handleSearchClick = () => {
+    //toogle gpt search
+    dispatch(toogleGptSearchView());
+  };
   return (
     <>
       <div className="absolute bg-gradient-to-b from-black w-full z-10 flex justify-between">
         <img className="w-44 px-8 py-2" src={LOGO} alt="logo" />
 
         <div className="flex p-2 ">
+          {/* //<div className="text-white bg-purple-800 flex p-4  rounded-lg">Gpt Search</div> */}
+          <button
+            className="text-white bg-purple-800 flex p-4  rounded-lg font-bold"
+            onClick={handleSearchClick}
+          >
+            GPT Search
+          </button>
           <img className="w-10 h-10 m-2" src={usericon} alt="user img" />
           <button onClick={handleSignOut} className="  font-bold text-white">
             Sign Out
