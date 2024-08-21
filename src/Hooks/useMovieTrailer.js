@@ -20,7 +20,7 @@ const useMovieTrailer = (imdbId) => {
           const youtubeData = await youtubeResponse.json();
 
           if (youtubeData.items?.length > 0) {
-            setTrailerUrl(`https://www.youtube.com/embed/${youtubeData.items[0].id.videoId}`);
+            setTrailerUrl(`https://www.youtube.com/embed/${youtubeData.items[0].id.videoId}/&t=4?&autoplay=1&mute=1`);
           } else {
             setTrailerUrl(''); // No trailer found
           }

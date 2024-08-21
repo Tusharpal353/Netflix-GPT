@@ -60,8 +60,8 @@ const VideoBackground = () => {
         <p>Loading trailer...</p>
       ) : trailerUrl ? (
         <iframe
-          width="560"
-          height="315"
+        className="w-screen aspect-video"
+          
           src={trailerUrl}
           title="Movie Trailer"
           frameBorder="0"

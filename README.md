@@ -34,6 +34,20 @@
 
 16 Api call for the moive is done
 
+17 custom hook for now playing movies 
+
+18 updated store with movie data
+
+19 fetch data for trailer video
+
+20 updaed store with trailer video id
+
+21 created login for showing trailer through YOUTUBE API
+
+22 made it auto play and mute 
+
+23 addded tailwind to look sexy!!
+
 # features
 
 - Login/Signup

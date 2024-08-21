@@ -12,7 +12,7 @@ const MainContainer = () => {
   //or
   if (!movies) return;
   const mainMovie = movies[2];
-  console.log("Main Movie for trailer", mainMovie);
+ // console.log("Main Movie for trailer", mainMovie);
 
   //extracting this from mainMovie which is coming from API
   /*    const {title,description}=mainMovie; */
@@ -25,7 +25,7 @@ const MainContainer = () => {
   dispatch(addTrailervideo(ImdbID))
   return (
     <div>
-      MainContainer
+      
       {/*     <VideoTitle  title={title} description={description}/> */}
       <VideoTitle title={title} description={description} />
       <VideoBackground imdbiD={imdbid} />
