@@ -48,6 +48,14 @@
 
 23 addded tailwind to look sexy!!
 
+24 Build movie List
+
+25 Build Movie Card
+
+26 Made UI for the cards section 
+
+27
+
 # features
 
 - Login/Signup
