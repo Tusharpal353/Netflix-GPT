@@ -7,7 +7,9 @@ import GptSearch from "./GptSearch";
 import { useSelector } from "react-redux";
 const Browse = () => {
   const showGPTSearch = useSelector(store => store.gpt.showGptSearch);
-  console.log("line 10",showGPTSearch)
+  //console.log("line 10",showGPTSearch)
+
+  const 
 
   useNowPlayingMovies();
   return (

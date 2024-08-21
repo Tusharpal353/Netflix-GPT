@@ -6,7 +6,7 @@ import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 
 import { addUser, removeUser } from "../Utils/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { LOGO, SUPPORTED_LANGUAGE } from "../Utils/constants";
 import { toogleGptSearchView } from "../Utils/gptSlice";
@@ -15,6 +15,9 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
+
+  //for hinding LANGUAGE drop 
+  const showGptSearch=useSelector((store)=>store.gpt.showGptSearch)
 
   const handleSignOut = () => {
     signOut(auth)
@@ -66,17 +69,19 @@ const Header = () => {
         <img className="w-44 px-8 py-2" src={LOGO} alt="logo" />
 
         <div className="flex p-2 ">
-          <select className="p-2 bg-gray-600 text-white m-2" onChange={handleLanguageChange}>
+
+        {/* if showGpt is true then show else hidden */}
+         {showGptSearch && <select className="p-2 bg-gray-600 text-white m-2" onChange={handleLanguageChange}>
             {SUPPORTED_LANGUAGE.map(lang=><option key={lang.identifier}  value={lang.identifier}>{lang.name}</option>)}
            
             
-          </select>
+          </select>}
           {/* //<div className="text-white bg-purple-800 flex p-4  rounded-lg">Gpt Search</div> */}
           <button
             className="text-white bg-purple-800 flex p-4 mx-2 rounded-lg font-bold"
             onClick={handleSearchClick}
           >
-            GPT Search
+            {showGptSearch ?"Home" :"GPT Search"}
           </button>
           <img className="w-10 h-10 m-2" src={usericon} alt="user img" />
           <button onClick={handleSignOut} className="  font-bold text-white">
