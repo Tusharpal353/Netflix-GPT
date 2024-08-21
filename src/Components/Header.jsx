@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { LOGO, SUPPORTED_LANGUAGE } from "../Utils/constants";
 import { toogleGptSearchView } from "../Utils/gptSlice";
+import { changeLanguage } from "../Utils/configSlice";
 const Header = () => {
   const dispatch = useDispatch();
 
@@ -53,13 +54,19 @@ const Header = () => {
     //toogle gpt search
     dispatch(toogleGptSearchView());
   };
+
+  const handleLanguageChange = (e)=>{
+    dispatch(changeLanguage(e.target.value));
+
+  }
   return (
     <>
       <div className="absolute bg-gradient-to-b from-black w-full z-10 flex justify-between">
+        {/* NETFLIX LOGO */}
         <img className="w-44 px-8 py-2" src={LOGO} alt="logo" />
 
         <div className="flex p-2 ">
-          <select className="p-2 bg-gray-600 text-white m-2">
+          <select className="p-2 bg-gray-600 text-white m-2" onChange={handleLanguageChange}>
             {SUPPORTED_LANGUAGE.map(lang=><option key={lang.identifier}  value={lang.identifier}>{lang.name}</option>)}
            
             
