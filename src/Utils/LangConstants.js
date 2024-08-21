@@ -1,5 +1,5 @@
 const lang= {
-    en:{
+    eng:{
         search:"search",
         gptSearchPlaceHolder:"what would you like to watch ?",
 
@@ -9,7 +9,7 @@ const lang= {
         gptSearchPlaceHolder:"आप क्या देखना चाहेंगे?",
 
     },
-    German:{
+    german:{
         search:"suchen",
         gptSearchPlaceHolder:"Was möchtest du sehen?    ",
     }
