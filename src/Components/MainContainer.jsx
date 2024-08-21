@@ -11,7 +11,7 @@ const MainContainer = () => {
   //if(movies === null) return;
   //or
   if (!movies) return;
-  const mainMovie = movies[2];
+  const mainMovie = movies[66];
  // console.log("Main Movie for trailer", mainMovie);
 
   //extracting this from mainMovie which is coming from API
