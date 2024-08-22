@@ -9,8 +9,7 @@ const Browse = () => {
   const showGPTSearch = useSelector(store => store.gpt.showGptSearch);
   //console.log("line 10",showGPTSearch)
 
-  const 
-
+  
   useNowPlayingMovies();
   return (
     <div>
