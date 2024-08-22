@@ -19,3 +19,15 @@ export const SUPPORTED_LANGUAGE = [
   { identifier: "hindi", name: "Hindi" },
   { identifier: "german", name: "German" },
 ];
+
+
+//export const OPENAI_KEY="sk-400SqWge11IrnN4RRAxojSGkqegO_mtAcpWNv7aKHrT3BlbkFJyC4AD1TtmIzJTqg8u9W9LoAkb303-J9pgHr7FxU2AA"
+
+ 
+/* REACT_APP_OPENAI_KEY=sk-400SqWge11IrnN4RRAxojSGkqegO_mtAcpWNv7aKHrT3BlbkFJyC4AD1TtmIzJTqg8u9W9LoAkb303-J9pgHr7FxU2AA   */
+
+/* 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 */
+/* REACT_APP_OPENAI_KEY=sk-6WdG5uHed76fc4OWsQigODByBNsOgCPdcjrPsWHr5lT3BlbkFJvjnkjeD3slragDl-un8_CPD0oeUamfZL3zpDkez_4A */
+
+/* 
+secondary-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 */

@@ -55,8 +55,15 @@
 26 Made UI for the cards section 
 
 
+
+
 ***************************************************************GPT Search Feature************
-27 
+
+27 GPT search page
+
+28 GPT search BAR
+
+29 Multi language feature in app
 
 
 # features
