@@ -8,7 +8,7 @@ const useMovieTrailer = (imdbId) => {
     if (!imdbId) return;
 
     const fetchTrailer = async () => {
-      const omdbApiKey = 'fefeee46'; // Replace with your OMDb API key
+     const omdbApiKey = 'fefeee46';  // Replace with your OMDb API key
       const youtubeApiKey = 'AIzaSyBGSdUGrT8zzoj8vpCfwA-4dp418noAVCw'; // Replace with your YouTube API key
 
       try {
