@@ -1,4 +1,3 @@
-
 /* 
 import React, { useRef } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -75,21 +74,27 @@ import React, { useRef } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import debounce from "lodash.debounce";
 import lang from "../Utils/LangConstants";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addmoiveResultsGemini } from "../Utils/gptSlice";
 
 const GptSearchBar = () => {
   // Initialize the Google Gemini API client
   const genAI = new GoogleGenerativeAI(process.env.REACT_APP_API_KEY);
+  const dispatch = useDispatch();
 
   const langKey = useSelector((store) => store.config.lang);
   const searchText = useRef(null);
 
   // Function to search movie in OMDB and return the movie data
   const searchMovieOMDB = async (movie) => {
-    const omdbApiKey = 'fefeee46';
-    const response = await fetch(`http://www.omdbapi.com/?apikey=${omdbApiKey}&t=${encodeURIComponent(movie)}`);
+    const omdbApiKey = "fefeee46";
+    const response = await fetch(
+      `http://www.omdbapi.com/?apikey=${omdbApiKey}&t=${encodeURIComponent(
+        movie
+      )}`
+    );
     const json = await response.json();
-    return json;  // Return the full movie data object
+    return json; // Return the full movie data object
   };
 
   // Handle the search click with debouncing
@@ -105,12 +110,22 @@ const GptSearchBar = () => {
       .generateContent([geminiQuery]);
 
     const geminiResponseText = await geminiResults.response.text();
-    const gemini_response = geminiResponseText.split(",").map(movie => movie.trim());
+    const gemini_response = geminiResponseText
+      .split(",")
+      .map((movie) => movie.trim());
 
-    const promiseArray = gemini_response.map(movie => searchMovieOMDB(movie));
+    const promiseArray = gemini_response.map((movie) => searchMovieOMDB(movie));
     const omdbResults = await Promise.all(promiseArray);
 
     console.log("After promise resolve", omdbResults);
+
+      //passing multiple result in a store
+    dispatch(
+      addmoiveResultsGemini({
+        movieName: gemini_response,
+        movieResult: omdbResults,
+      })
+    );
   }, 300);
 
   return (
