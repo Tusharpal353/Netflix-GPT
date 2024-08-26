@@ -5,6 +5,7 @@ import lang from "../Utils/LangConstants";
 import { useDispatch, useSelector } from "react-redux";
 import { addGeminiMovieResult } from "../Utils/gptSlice";
 
+
 const GptSearchBar = () => {
   const dispatch = useDispatch()
 
@@ -19,7 +20,7 @@ const GptSearchBar = () => {
 
   // Function to search movie in OMDB and return the entire response object
   const searchMovieOMDB = async (movie) => {
-    const omdbApiKey = 'fefeee46';
+    const omdbApiKey = process.env.REACT_APP_OMDB_KEY;
     const response = await fetch(`http://www.omdbapi.com/?apikey=${omdbApiKey}&t=${encodeURIComponent(movie)}`);
     const json = await response.json();
     //console.log(json);
