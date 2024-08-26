@@ -6,6 +6,7 @@
   import GptSearch from "./GptSearch";
   import { useSelector } from "react-redux";
   import SearchComponent from "./SearchComponent";
+import GptMovieSuggetions from "./GptMovieSuggetions";
   const Browse = () => {
     const showGPTSearch = useSelector(store => store.gpt.showGptSearch);
     //console.log("line 10",showGPTSearch)
@@ -25,6 +26,7 @@
             <MainContainer />
             <SecondaryContainer />
             <SearchComponent/>
+            
           </>
         )}
 
