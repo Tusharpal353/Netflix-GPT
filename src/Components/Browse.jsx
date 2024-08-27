@@ -1,12 +1,12 @@
   import React from "react";
   import Header from "./Header";
-  import useNowPlayingMovies from "../Hooks/useNowPlayingMovies";
+  import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
   import MainContainer from "./MainContainer";
   import SecondaryContainer from "./SecondaryContainer";
   import GptSearch from "./GptSearch";
   import { useSelector } from "react-redux";
   import SearchComponent from "./SearchComponent";
-import GptMovieSuggetions from "./GptMovieSuggetions";
+  import GptMovieSuggetions from "./GptMovieSuggetions";
   const Browse = () => {
     const showGPTSearch = useSelector(store => store.gpt.showGptSearch);
     //console.log("line 10",showGPTSearch)
