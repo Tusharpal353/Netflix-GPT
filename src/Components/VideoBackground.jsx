@@ -48,7 +48,7 @@ export default VideoBackground;
 
 import React from "react";
 import { useSelector } from "react-redux";
-import useMovieTrailer from "../hooks/useMovieTrailer"; // Adjust the import path if needed
+import useMovieTrailer from "../Hooks/useMovieTrailer"; // Adjust the import path if needed
 
 const VideoBackground = () => {
   const imdbId = useSelector((store) => store.movies?.trailerVideo);
