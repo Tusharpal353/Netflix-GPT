@@ -24,7 +24,7 @@ const MainContainer = () => {
   //store action to pass IMDBID of trailer
   dispatch(addTrailervideo(ImdbID))
   return (
-    <div>
+    <div className="md:pt-0 pt-[30%] bg-black">
       
       {/*     <VideoTitle  title={title} description={description}/> */}
       <VideoTitle title={title} description={description} />

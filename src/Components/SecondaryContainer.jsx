@@ -7,7 +7,7 @@ const SecondaryContainer = () => {
   //console.log("Movies",Movies)
   return (
     <div className='bg-black'>
-<div className='-mt-56 relative z-20 pl-6' >
+<div className='md:-mt-56 relative z-20 pl-6 mt-0' >
   
       <MovieList Title={"Now Playing Movies"} Movies={Movies.NowPlayingMovies}/>
       

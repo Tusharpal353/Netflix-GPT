@@ -25,8 +25,8 @@ import GptMovieSuggetions from "./GptMovieSuggetions";
             
             <MainContainer />
             <SecondaryContainer />
-            <SearchComponent/>
-            
+           {/*  <SearchComponent/>
+             */}
           </>
         )}
 

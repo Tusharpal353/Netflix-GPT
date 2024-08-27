@@ -34,7 +34,7 @@ const useMovieTrailer = (imdbId) => {
         setLoading(false);
       }
     };
-
+    
     fetchTrailer();
   }, [imdbId]);
 

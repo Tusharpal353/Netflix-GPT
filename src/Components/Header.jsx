@@ -13,7 +13,7 @@ import { toogleGptSearchView } from "../Utils/gptSlice";
 import { changeLanguage } from "../Utils/configSlice";
 const Header = () => {
   const dispatch = useDispatch();
-
+  const user = useSelector((state) => state.user);
   const navigate = useNavigate();
 
   //for hinding LANGUAGE drop 
@@ -64,11 +64,12 @@ const Header = () => {
   }
   return (
     <>
-      <div className="absolute bg-gradient-to-b from-black w-full z-10 flex justify-between">
+      <div className="absolute bg-gradient-to-b from-black w-full z-10 flex flex-col justify-between md:flex-row pt-6">
         {/* NETFLIX LOGO */}
-        <img className="w-44 px-8 py-2" src={LOGO} alt="logo" />
+        <img className="w-44 px-8 py-2 mx-auto md:mx-0" src={LOGO} alt="logo" />
 
-        <div className="flex p-2 ">
+        { user &&
+          <div className="flex p-2 justify-center ">
 
         {/* if showGpt is true then show else hidden */}
          {showGptSearch && <select className="p-2 bg-gray-600 text-white m-2" onChange={handleLanguageChange}>
@@ -87,7 +88,7 @@ const Header = () => {
           <button onClick={handleSignOut} className="  font-bold text-white">
             Sign Out
           </button>
-        </div>
+        </div>}
       </div>
     </>
   );

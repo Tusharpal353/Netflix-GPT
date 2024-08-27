@@ -76,17 +76,18 @@ const Login = () => {
   };
   return (
     <>
-      <Header />
+       <Header />
 
-      <div className="absolute">
+      <div className="absolute ">
         <img
+        className="h-screen w-screen object-cover md:h-auto"
           src={BANNER}
           alt="Banner"
         />
       </div>
 
       <form
-        className="absolute p-12  bg-black w-3/12 my-36 mx-auto right-0 left-0 text-white bg-opacity-80 "
+        className="absolute p-12  bg-black w-full md:w-3/12 my-36 mx-auto right-0 left-0 text-white bg-opacity-80  h-auto "
         onSubmit={(e) => e.preventDefault()}
       >
         <h1 className="text-white text-3xl py-4 font-bold">
