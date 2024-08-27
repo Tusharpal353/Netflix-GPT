@@ -17,8 +17,8 @@ const VideoBackground = () => {
     const youtubeVideoId = json.trailer.youtube_video_id;
     console.log( youtubeVideoId); */
 /* 
-    const data2 = await  fetch(`http://www.omdbapi.com/?i=${trailerVideo}&apikey=fefeee46`);
-    //const data3 = await fetch("http://www.omdbapi.com/?i="+{imdbId}+"&apikey=fefeee46")
+    const data2 = await  fetch(`http://www.omdbapi.com/?i=${trailerVideo}&apikey=`);
+    //const data3 = await fetch("http://www.omdbapi.com/?i="+{imdbId}+"&apikey=")
     const json2 = await data2.json();
     console.log("trailer id",json2)
   };

@@ -103,7 +103,7 @@ const GptSearchBar = () => {
 
   //search moiv
    const searchMovieOMDB = async (movie) => {
-    const omdbApiKey = 'fefeee46';
+   
     const data = await fetch(`http://www.omdbapi.com/?apikey=${omdbApiKey}&t=${encodeURIComponent(movie)}`);
     const json = await data.json();
     console.log(json)
