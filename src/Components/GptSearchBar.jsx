@@ -21,7 +21,7 @@ const GptSearchBar = () => {
   // Function to search movie in OMDB and return the entire response object
   const searchMovieOMDB = async (movie) => {
     const omdbApiKey = process.env.REACT_APP_OMDB_KEY;
-    const response = await fetch(`http://www.omdbapi.com/?apikey=${omdbApiKey}&t=${encodeURIComponent(movie)}`);
+    const response = await fetch(`https://www.omdbapi.com/?apikey=${omdbApiKey}&t=${encodeURIComponent(movie)}`);
     const json = await response.json();
     //console.log(json);
     return json;  // Return the entire response object
