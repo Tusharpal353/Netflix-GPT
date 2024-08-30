@@ -45,11 +45,11 @@ import MovieCard1 from './MovieCard1';
 
 const GptMovieSuggestions = () => {
   const gpt = useSelector((store)=>store.gpt)
-  console.log(gpt)
+  //console.log(gpt)
   const { movieResult, movieNames } = useSelector((store) => store?.gpt.geminiMovie||{});
 
-  console.log("bar",movieNames);
-  console.log("bar",movieResult   );
+  //console.log("bar",movieNames);
+  //console.log("bar",movieResult   );
 
   if (!movieNames || movieNames.length === 0) return null;//in place of null
 

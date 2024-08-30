@@ -18,3 +18,7 @@ export const SUPPORTED_LANGUAGE = [
   { identifier: "hindi", name: "Hindi" },
   { identifier: "german", name: "German" },
 ];
+
+
+
+export const VideoLink ="https://drive.google.com/file/d/1raPgdtuuw_Vv9lMQLmrrvAfZfS9-CX99/view?usp=sharing"

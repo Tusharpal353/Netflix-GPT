@@ -42,3 +42,5 @@ const useMovieTrailer = (imdbId) => {
 };
 
 export default useMovieTrailer;
+
+

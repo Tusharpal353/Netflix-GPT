@@ -93,3 +93,5 @@
 -search Bar
 
 -Movie suggetions
+un comment
+  videoBackground - in MAIN CONTAINER

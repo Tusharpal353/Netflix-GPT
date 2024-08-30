@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import VideoTitle from "./VideoTitle";
 import VideoBackground from "./VideoBackground";
 import { addTrailervideo } from "../Utils/moviesSlice";
+import video from '../Images/Header/videoplayback (1).mp4'
 
 const MainContainer = () => {
   const dispatch=useDispatch()
@@ -28,7 +29,8 @@ const MainContainer = () => {
       
       {/*     <VideoTitle  title={title} description={description}/> */}
       <VideoTitle title={title} description={description} />
-      <VideoBackground imdbiD={imdbid} />
+      <video src={video} autoPlay  muted loop></video>
+     {/*  <VideoBackground imdbiD={imdbid} /> */}
     </div>
   );
 };
