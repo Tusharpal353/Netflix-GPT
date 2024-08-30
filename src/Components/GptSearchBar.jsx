@@ -1,3 +1,5 @@
+
+
 import React, { useRef } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import debounce from "lodash.debounce";
@@ -60,7 +62,7 @@ const GptSearchBar = () => {
   }, 300);
 
   return (
-    <div className=" flex justify-center pt-[10%] md:pt-[10%]">
+    <div className=" flex justify-center pt-[40%] md:pt-[10%]  ">
       <form
         className="bg-black w-full md:w-1/2 grid grid-cols-12"
         onSubmit={(e) => e.preventDefault()}
@@ -84,7 +86,7 @@ const GptSearchBar = () => {
 
 export default GptSearchBar;
 
-
+ 
 
 
 
