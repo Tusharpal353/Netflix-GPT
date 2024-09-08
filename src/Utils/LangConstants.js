@@ -1,7 +1,7 @@
 const lang= {
     eng:{
         search:"search",
-        gptSearchPlaceHolder:"what would you like to watch ?",
+        gptSearchPlaceHolder:"what would you like to watch ? eg Movies like Don 2",
 
     },
     hindi:{

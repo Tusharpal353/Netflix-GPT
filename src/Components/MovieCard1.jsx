@@ -1,3 +1,4 @@
+import React from "react";
 const MovieCard1 = ({ movie }) => {
     return (
       <div className="card m-2 p-2 bg-gray-800 text-white w-44 h ">
